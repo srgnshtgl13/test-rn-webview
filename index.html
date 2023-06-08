@@ -2,9 +2,9 @@
 <html>
 <style>
 button {
-	width: 250px;
+	width: 350px;
     padding: 5px 15px;
-    font-size: 20px;
+    font-size: 35px;
 }
 .container {
 	display: flex;
@@ -12,10 +12,10 @@ button {
     align-items: center;
 }
 .mt-5 {
-	margin-top: 5px;
+	margin-top: 25px;
 }
 .mt-50 {
-	margin-top: 50px;
+	margin-top: 150px;
 }
 </style>
 <body>
@@ -27,13 +27,11 @@ button {
 
 
 <script>
-const data = JSON.stringify({size: "m"});
+const data = JSON.stringify({size: "m", platform: window.navigator.platform});
 function genereateIos() {
-	console.log(window.navigator.platform);
     window.ReactNativeWebView && window.ReactNativeWebView.postMessage(data, "*")
 }
 function genereateAndroid() {
-	console.log(window.navigator.platform);
 	window.postMessage(data, "*")
 }
 </script>
