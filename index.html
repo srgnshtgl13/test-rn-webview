@@ -2,17 +2,14 @@
 <html>
 <style>
 button {
-	width: 350px;
+    width: 350px;
     padding: 5px 15px;
     font-size: 35px;
 }
 .container {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.mt-5 {
-	margin-top: 25px;
 }
 .mt-50 {
 	margin-top: 150px;
@@ -20,18 +17,18 @@ button {
 </style>
 <body>
 <div class="container mt-50">
-	<button onclick="genereateIos()">IOS</button>
-    <button onclick="genereateAndroid()" class="mt-5">ANDROID</button>
+	<button onclick="genereateMessage()">Generate Message</button>
 </div>
 
 
 
 <script>
 const data = JSON.stringify({size: "m", platform: window.navigator.platform});
-function genereateIos() {
-    window.ReactNativeWebView && window.ReactNativeWebView.postMessage(data, "*")
-}
-function genereateAndroid() {
+function genereateMessage() {
+	if(window.navigator.platform === 'iPhone') {
+		window.ReactNativeWebView && window.ReactNativeWebView.postMessage(data, "*")
+		return;
+	}
 	window.postMessage(data, "*")
 }
 </script>
